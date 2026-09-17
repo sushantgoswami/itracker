@@ -17,10 +17,10 @@ if (isset($_GET['id'])) {
 
     if ($stmt->execute()) {
         header("Location: ../calculate.php"); // Change to your page name
-        $_SESSION['msg'] = "Record deleted.";
+        $_SESSION['msg'] = "(Success) Record deleted.";
         exit;
     } else {
-        $_SESSION['msg'] = "Error deleting record.";
+        $_SESSION['msg'] = "(Error) Record not deleted.";
     }
 
     $stmt->close();

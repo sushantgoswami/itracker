@@ -1,0 +1,336 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: ../../index.php");
+    exit;
+}
+
+if (isset($_SESSION['msg'])) { echo "<script> alert('" . addslashes($_SESSION['msg']) . "'); </script>"; unset($_SESSION['msg']); }
+
+include '../db_connect.php';
+
+$username = $_SESSION['username'];
+
+$sql1 = "SELECT * FROM users WHERE username != 'administrator' ORDER BY username";
+$result1 = $conn->query($sql1);
+// $row1 = $result1->fetch_assoc();
+$rowcount = 0;
+while ($row1 = $result1->fetch_assoc())
+{
+    $rowcount = $rowcount + 1;
+}
+// echo $rowcount;
+
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<head>
+    <h2>Administrator mftracker</h2>
+    <link rel="icon" type="image/x-icon" href="../icons/golden-indian-rupee.ico">
+    <link href="../bootstrap/bootstrap.min.css" rel="stylesheet">
+    <script src="../bootstrap/jquery-3.7.1.min.js"></script>
+    <script src="../bootstrap/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../css/style5.css">
+    <style>
+    .parent-container-div {
+	  display: flex;         /* Activates flexbox alignment */
+	  gap: 20px;             /* Controls the exact space between the boxes */
+	}
+
+	.child-box {
+	  flex: 1;               /* Makes both boxes take up equal width */
+	  background-color: #eeffcc; /* Visual styling only */
+	  padding: 10px;         /* Visual styling only */
+	}
+    body {
+    background-color: #e6e6ff;
+    }
+    .table-container {
+    width: 100%;
+    overflow-x: auto; /* Adds horizontal scrollbar if table overflows */
+    border: 0px solid #ccc; /* Optional border for the box visual */
+    padding: 0px;
+    }
+	/* Dark semi-transparent background over the whole screen */
+	.modal-overlay {
+	  position: fixed;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  background-color: rgba(0, 0, 0, 0.4); /* 50% transparent black */
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  z-index: 1000;
+	}	
+	/* White semi-transparent container box */
+	.modal-box {
+	  background-color: rgba(255, 255, 255, 0.95); /* 85% transparent white */
+	  padding: 20px;
+	  border-radius: 8px;
+	  color: #333333; /* Text remains 100% solid */
+	  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+	}
+    .modal-close-btn {
+    /* Button container sizing */
+	  width: 60px;
+      height: 40px;
+      padding: 10px;
+      background-color: orange;
+    }
+    </style>
+</head>
+<div class="menu parent-container-div">
+    <div class="child-box">
+    <p>➜ Check Latest User Messages <a href="check_messages.php">Click Here</a></p>
+    <p>➜ Add New Mutual Fund <a href="data-service/data_entry_new.php">Click Here</a></p>
+    <p>➜ Update Latest NAV for ALL Users <a href="all_download_update_nav.php">Click Here</a></p>
+    <p>➜ Reset Password for Admin User <a href="admin_reset_password.php">Click Here</a></p>
+    <p>➜ Logout <a href="../../logout.php">Click Here</a></p>
+    </div>
+    <div class="child-box">
+    <p>➜ Download All fund data in CSV <a href="all_csvdata_download.php" target="_blank">Click Here</a></p>
+    <p>➜ Restore All fund data in CSV <a href="all_csvdata_upload.php" target="_blank">Click Here</a></p>   
+    <p>➜ Download ALL fund data in SQL <a href="all_sqldata_download.php">Click Here</a></p>     
+    <p>➜ Upload ALL fund data in SQL <a href="all_sqldata_upload.php">Click Here</a></p>
+    </div>
+    <div class="child-box">
+    <table>
+    <tr><th style="background-color: #eeffcc; color:green;"><p>➜ Total User Created: </p></th><th><p><?php echo $rowcount; ?></p></th></tr>
+    <tr><th style="background-color: #eeffcc; color:green;"><p>➜ Total Tables Created: </p></th><th><p>Click Here</p></th></tr>
+    <tr><th style="background-color: #eeffcc; color:green;"><p>➜ Total Mutual Funds Used: </p></th><th><p>Click Here</p></th></tr>
+    <tr><th style="background-color: #eeffcc; color:green;"><p>➜ Currently logged in Users: </p></th><th><p>Click Here</p></th></tr>
+    </table>
+    
+    <button type="button" onclick="window.location.reload();">Refresh Values</button>
+    </div>
+</div>
+
+<?php
+
+// Get unique user names
+include '../db_connect.php';
+$sql = "SELECT * FROM users WHERE username != 'administrator' ORDER BY username";
+$result = $conn->query($sql);
+
+?>
+
+<body>
+<div class="table-container container">
+<table>
+    <tr>
+        <th>User ID</th>
+        <th>User Name</th>
+        <th>Full Name</th>
+        <th>Email ID</th>
+        <th>Table Name</th>
+        <th>Action</th>
+    </tr>
+
+<?php
+    while ($row = $result->fetch_assoc()) {
+    	echo "<tr>";
+        echo "<td>".$row['id']."</td>";
+        echo "<td>".$row['username']."</td>";
+        $username_user =  $row['username'];
+    	echo "<td>".$row['fullname']."</td>";
+    	echo "<td>".$row['email']."</td>";
+    	echo "<td>".$row['tablename']."</td>";
+		?>
+    	<td>
+        <button class="btn btn-primary viewBtn1" data-toggle="modal" data-target="#Modal1"
+                data-id="<?php echo $username_user; ?>">
+            Reset Password
+        </button>
+        <button style="background-color:orange" class="btn btn-primary viewBtn2" data-toggle="modal" data-target="#Modal2"
+                data-id="<?php echo $username_user; ?>">
+            Delete
+        </button>
+    	</td>
+        <?php
+        echo "<tr>";
+}
+$conn->close();
+?>
+</table>
+</div>
+<br>
+
+<?php
+// Get unique table names
+include '../db_connect.php';    
+$sql = "SHOW TABLES";
+$result = mysqli_query($conn, $sql);
+?>
+<div class="table-container container">
+<table>
+    <tr>
+        <th>Table Name</th>
+        <th>Associated Username</th>
+        <th>User Full Name</th>
+        <th>User Email</th>
+        <th>Orphan Table</th>
+        <th>Action</th>
+    </tr>
+
+<?php
+    while ($row = mysqli_fetch_array($result)) {
+        $tablename_user = $row[0];
+        if ($tablename_user != 'users') {
+        	$stmt = $conn->prepare("SELECT * FROM users WHERE tablename = ?");
+        	$stmt->bind_param("s", $tablename_user);
+            $stmt->execute();
+        	$result2 = $stmt->get_result();
+        	while ($row2 = $result2->fetch_assoc()) {
+             $username_user = $row2['username'];
+             $fullname_user = $row2['fullname'];
+             $email_user = $row2['email'];
+        	}
+    	echo "<tr>";
+        echo "<td>".$row[0]."</td>";
+        echo "<td>".$username_user."</td>";
+        echo "<td>".$fullname_user."</td>";
+        echo "<td>".$email_user."</td>";
+        if ($username_user != '') {
+         echo "<td>".'No'."</td>";   
+        } else {
+         echo "<td>".'Yes'."</td>";  
+        }
+        $username_user = ''; $fullname_user = ''; $email_user = '';
+		?>
+    	<td>
+        <button class="btn btn-primary viewBtn3" data-toggle="modal" data-target="#Modal3"
+                data-id="<?php echo $tablename_user; ?>">
+            View Table
+        </button>
+        <button style="background-color:orange" class="btn btn-primary viewBtn4" data-toggle="modal" data-target="#Modal4"
+                data-id="<?php echo $tablename_user; ?>">
+            Delete Table
+        </button>
+        <?php
+        echo "<tr>";
+        }
+}
+$conn->close();
+?>
+</table>
+</div>
+    
+<!-- Modal -->
+<div class="modal fade" id="Modal1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content modal-overlay">
+            <div class="modal-box modal-close-btn modal-header">
+                <button class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody1">
+                Loading...
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="Modal2">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content modal-overlay">
+            <div class="modal-box modal-close-btn modal-header">  
+                <button class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody2">
+                Loading...
+            </div>
+        </div>
+    </div>
+</div>
+    
+<!-- Modal -->
+<div class="modal fade" id="Modal3">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content modal-overlay">
+            <div class="modal-box modal-close-btn modal-header">  
+                <button class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody3">
+                Loading...
+            </div>
+        </div>
+    </div>
+</div>
+    
+<!-- Modal -->
+<div class="modal fade" id="Modal4">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content modal-overlay">
+            <div class="modal-box modal-close-btn modal-header">  
+                <button class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody4">
+                Loading...
+            </div>
+        </div>
+    </div>
+</div>
+    
+<script>
+
+$(document).on("click",".viewBtn1",function(){
+
+    var id=$(this).data("id");
+    $("#modalBody1").html("Loading...");
+    $("#modalBody1").load("reset_user_password.php?id="+id);
+    $("#Modal1").modal("show");
+
+});
+
+</script>
+<script>
+
+$(document).on("click",".viewBtn2",function(){
+
+    var id=$(this).data("id");
+    $("#modalBody2").html("Loading...");
+    $("#modalBody2").load("delete_user.php?id="+id);
+    $("#Modal2").modal("show");
+
+});
+
+</script>
+<script>
+
+$(document).on("click",".viewBtn3",function(){
+
+    var id=$(this).data("id");
+    $("#modalBody3").html("Loading...");
+    $("#modalBody3").load("view_table.php?id="+id);
+    $("#Modal3").modal("show");
+
+});
+
+</script>
+<script>
+
+$(document).on("click",".viewBtn4",function(){
+
+    var id=$(this).data("id");
+    $("#modalBody4").html("Loading...");
+    $("#modalBody4").load("delete_table.php?id="+id);
+    $("#Modal4").modal("show");
+
+});
+
+</script>
+
+</body>  
+</html>
+   

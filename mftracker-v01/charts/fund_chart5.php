@@ -20,7 +20,6 @@ if (count($data1) > 30) {
     $data1 = array_slice($data1, -30);
 }
 
-// echo "-                                                                                                                       -";
 ?>
 
 <html>

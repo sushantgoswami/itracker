@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+
 if (!isset($_SESSION['username'])) {header("Location: ../../login.php"); exit;}
 
 $data = [];
@@ -25,7 +26,7 @@ if (($handle = fopen($filename, "r")) !== false) {
 
     fclose($handle);
 }
-print_r($data);
+
 ?>
 
 <!DOCTYPE html>

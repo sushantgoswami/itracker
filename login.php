@@ -1,16 +1,11 @@
 <?php
+
 session_start();
+
+include 'mftracker-v01/config/global.php';
 
 if (isset($_SESSION['username'])) { header("Location: index.php"); exit; }
 if (isset($_SESSION['msg'])) { echo "<script> alert('" . addslashes($_SESSION['msg']) . "'); </script>"; unset($_SESSION['msg']); }
-
-// $dbout = include 'mftracker-v01/config/db.php';
-// 
-// if ($dbout == "Database_connection_failed.") {
-//     header("Location: mftracker-v01/installer/install.php");
-// } else {
-//     header("Location: mftracker-v01/installer/install.php");
-// }
 
 ?>
 
@@ -182,8 +177,8 @@ if (isset($_SESSION['msg'])) { echo "<script> alert('" . addslashes($_SESSION['m
 <body>
 
   <div class="form-container">
-    <h2>mftracker Login</h2>
-    <p>We would love to hear from you. Find the full code in github. https://github.com/sushantgoswami/mftracker.git</p>
+    <h2><?php echo $sitename ?> Login</h2>
+    <p>We would love to hear from you. Find the full code in github. <?php echo $giturl; ?></p>
     
     <form class="fancy-form" action="login_check.php" method="post">
       <!-- Name Field -->

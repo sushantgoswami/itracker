@@ -1,7 +1,5 @@
 <?php
 
-// session_start();
-
 if (!isset($_SESSION['username'])) {
     http_response_code(403);
     exit('Access denied');
@@ -494,7 +492,15 @@ new Chart(ctx1, {
             {
                 label: 'Current Value',
                 data: current,
-                borderColor: "#20c997",
+                borderColor: "#20c997", 
+                segment: {
+                        borderColor: function(context) {
+                        const i = context.p1DataIndex;
+                        return current[i] < purchase[i]
+                        ? "#e63946"
+                        : "#20c997";
+                        }
+                },
                 backgroundColor: currentGradient,
                 borderWidth: 3,
                 fill: true,

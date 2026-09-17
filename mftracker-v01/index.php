@@ -98,7 +98,18 @@
     	font-size: 16px;
     	color: #e5e7eb;
 	}
-    </style>
+	.messageBox {
+    	position: fixed;
+    	top: 20px;
+    	right: 20px;
+    	background: #28a745;
+    	color: white;
+    	padding: 12px 20px;
+    	border-radius: 5px;
+    	z-index: 9999;
+	}    
+</style>
+
 </head>
 <?php
 session_start();
@@ -106,10 +117,10 @@ if (!isset($_SESSION['username'])) {
     header("Location: ../login.php");
     exit;
 }
-if (isset($_SESSION['msg'])) { echo "<script> alert('" . addslashes($_SESSION['msg']) . "'); </script>"; unset($_SESSION['msg']); }
+// if (isset($_SESSION['msg'])) { echo "<script> alert('" . addslashes($_SESSION['msg']) . "'); </script>"; unset($_SESSION['msg']); }
+include 'service/subroutines/auto_close_popup.php';
 
 include 'db_connect.php';
-// include 'service/subroutines/fetch_last_day_diff.php';
 
 $username = $_SESSION['username'];
 $fullname = $_SESSION['fullname'];
@@ -178,6 +189,7 @@ $gainloss_percent_total_value = ($gainloss_total_value / $purchase_total_value) 
 
 <?php
 
+$username_user = $_SESSION['username'];
 $purchase_total_value = 0;
 $current_total_value = 0;
 
@@ -245,12 +257,13 @@ while ($row = $result->fetch_assoc()) {
         echo "<td><b>".round($purchase_initial_value, 2)."</b></td>";
         echo "<td><b>".round($current_initial_value, 2)."</b></td>";
         $class = ($gainloss_initial_value >= 0) ? "profit" : "loss";
-		echo "<td class='$class'>".$gainloss_initial_value."</td>";
+	echo "<td class='$class'>".$gainloss_initial_value."</td>";
         $class = ($diffvalue >= 0) ? "profit" : "loss";
-		echo "<td class='$class'>".number_format($diffvalue, 2)."</td>";
+	echo "<td class='$class'>".number_format($diffvalue, 2)."</td>";
         $class = ($percentage_value >= 0) ? "profit" : "loss";
-        	echo "<td class='$class'>".number_format($percentage_value, 2)." %</td>";
-		?>
+        echo "<td class='$class'>".number_format($percentage_value, 2)." %</td>";
+
+	?>
     	<td>
         <button title="Purchase Details" style="background-color: #008000" class="btn btn-primary viewBtn1" data-toggle="modal" data-target="#Modal1"
                 data-id="<?php echo $isincode; ?>">
@@ -423,6 +436,7 @@ $(document).on("click",".viewBtn4",function(){
 </script>
 
 <?php include 'charts/fund_chart4.php'; ?>
+<?php include 'charts/fund_chart3.php'; ?>
 
 </body>
 </html>

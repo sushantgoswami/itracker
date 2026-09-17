@@ -46,15 +46,17 @@ $currentnav = "0";
     $stmt->bind_param("ssssss", $isincode, $fundname, $date, $currentnav, $purchasenav, $units);
 
     if ($stmt->execute()) {
-        $_SESSION['msg']  = "Data saved successfully.";
+        $_SESSION['msg']  = "(Success) Data saved.";
     } else {
-        $_SESSION['msg'] = "Error saving data: ";
+        $_SESSION['msg'] = "(Error) Data unsaved: ";
     }
 
     $stmt->close();
     $conn->close();
 
 header("location: ../calculate.php");
+// header("location: ../service/subroutines/auto_close_popup.php");
+
 exit();
 
 ?>

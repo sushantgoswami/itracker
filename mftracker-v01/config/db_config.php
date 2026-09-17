@@ -1,8 +1,8 @@
 <?php
     
 $servername = "localhost";
-$username = "itracker";
-$password = "fantastic@itracker";
-$dbname = "itracker";
+$username = "mftracker01_user";
+$password = "Tsmlucknow@2025";
+$dbname = "mftracker01";
 
 ?>

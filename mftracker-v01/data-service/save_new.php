@@ -38,9 +38,9 @@ $currentnav = "0";
     $stmt->bind_param("ssssss", $isincode, $fundname, $date, $currentnav, $purchasenav, $units);
 
     if ($stmt->execute()) {
-        $msg = "Data saved successfully.";
+        $_SESSION['msg'] = "(Success) Data saved successfully.";
     } else {
-        $msg = "Error: ";
+        $_SESSION['msg'] = "(Error) Data not saved. ";
     }
 
     $stmt->close();

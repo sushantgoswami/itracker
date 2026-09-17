@@ -21,9 +21,9 @@ $isincode = $_SESSION['isincode'];
 	$result = $stmt->get_result();
 
     if ($stmt->execute()) {
-        $_SESSION['msg'] = "Data saved successfully.";
+        $_SESSION['msg'] = "(Success) Data Edited.";
     } else {
-        $_SESSION['msg'] = "Error: Saving data.";
+        $_SESSION['msg'] = "(Error) Data Unchanged.";
     }
 echo $purchasenav;
 echo $units;

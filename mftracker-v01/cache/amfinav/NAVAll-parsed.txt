@@ -1,0 +1,48 @@
+135122;INF846K01VO3;-;Axis Equity Savings Fund;Regular Plan;Growth Option;22.98;16-Sep-2026
+133054;INF109KA11J9;-;ICICI Prudential Equity Savings Fund;Direct Plan;Cumulative;25.09;16-Sep-2026
+120616;INF109K01S39;-;ICICI Prudential Conservative Hybrid Fund;Direct Plan;Growth;87.0448;16-Sep-2026
+144335;INF174KA1210;-;Kotak Balanced Advantage Fund;Direct Plan;Growth Option;22.753;16-Sep-2026
+131373;INF174K01D28;-;Kotak Equity Savings Fund;Direct Plan;Growth;30.3922;16-Sep-2026
+147477;INF174KA1EK3;-;Kotak Focused Fund;Regular Plan;Growth Option;26.395;16-Sep-2026
+152214;INF174KA1PZ7;-;Kotak Healthcare Fund;Direct Plan;Growth Option;17.615;16-Sep-2026
+104908;INF174K01DS9;-;Kotak Mid Cap Fund;Regular Plan;Growth;141.465;16-Sep-2026
+152065;INF174KA1PA0;-;Kotak Multi Asset Allocation Fund;Regular Plan;Growth Option;15.654;16-Sep-2026
+152462;INF174KA1QZ5;-;Kotak Technology Fund;Direct Plan;Growth;10.525;16-Sep-2026
+119839;INF200K01TS8;-;SBI CONSERVATIVE HYBRID FUND;Direct Plan;Growth;83.6318;16-Sep-2026
+152417;INF200KB1126;-;SBI Energy Opportunities Fund;Direct Plan;Growth;11.0352;16-Sep-2026
+146644;INF200KA1A48;-;SBI Equity Minimum Variance Fund;Regular Plan;Growth;23.0521;16-Sep-2026
+146643;INF200KA1A71;-;SBI Equity Minimum Variance Fund;Direct Plan;Growth;23.6799;16-Sep-2026
+146010;INF277K013S8;-;Tata Balanced Advantage Fund;Direct Plan;Growth Option;23.0541;16-Sep-2026
+135800;INF277K01Z77;-;Tata Digital India Fund;Direct Plan;Growth Option;48.0107;16-Sep-2026
+135810;INF277K019A3;-;Tata India Pharma & Healthcare Fund;Direct Plan;Growth Option;38.8188;16-Sep-2026
+151232;INF277KA1679;-;TATA MULTICAP FUND;Direct Plan;Growth Option;15.7641;16-Sep-2026
+152742;INF277KA1CC0;-;Tata Nifty India Tourism Index Fund;Direct Plan;Growth Option;8.6347;16-Sep-2026
+133054;INF109KA11J9;-;ICICI Prudential Equity Savings Fund;Direct Plan;Cumulative;25.09;16-Sep-2026
+120377;INF109K012B0;-;ICICI Prudential Balanced Advantage Fund;Direct Plan;Growth;86.72;16-Sep-2026
+152728;INF109KC12W6;-;ICICI PRUDENTIAL ENERGY OPPORTUNITIES FUND;Direct Plan;Growth;11.52;16-Sep-2026
+133054;INF109KA11J9;-;ICICI Prudential Equity Savings Fund;Direct Plan;Cumulative;25.09;16-Sep-2026
+120722;INF109K018N2;-;ICICI Prudential Focused Fund;Direct Plan;Growth;106.51;16-Sep-2026
+120616;INF109K01S39;-;ICICI Prudential Conservative Hybrid Fund;Direct Plan;Growth;87.0448;16-Sep-2026
+144333;INF174KA1186;-;Kotak Balanced Advantage Fund;Regular Plan;Growth Option;20.709;16-Sep-2026
+120154;INF174K01JZ1;-;Kotak Conservative Hybrid Fund;Direct Plan;Growth;69.5289;16-Sep-2026
+131373;INF174K01D28;-;Kotak Equity Savings Fund;Direct Plan;Growth;30.3922;16-Sep-2026
+147473;INF174KA1EN7;-;Kotak Focused Fund;Direct Plan;Growth option;29.461;16-Sep-2026
+133796;INF178L01095;-;Kotak Infrastructure and Economic Reform Fund;Regular Plan;Growth Option;68.274;16-Sep-2026
+101893;INF174K01NA6;-;Kotak Money Market Fund;Regular Plan;(Growth);4849.6895;16-Sep-2026
+152462;INF174KA1QZ5;-;Kotak Technology Fund;Direct Plan;Growth;10.525;16-Sep-2026
+149134;INF200KA1Y73;-;SBI Balanced Advantage Fund;Direct Plan;Growth;16.3264;16-Sep-2026
+119839;INF200K01TS8;-;SBI CONSERVATIVE HYBRID FUND;Direct Plan;Growth;83.6318;16-Sep-2026
+152417;INF200KB1126;-;SBI Energy Opportunities Fund;Direct Plan;Growth;11.0352;16-Sep-2026
+134643;INF200KA1DF3;-;SBI EQUITY SAVINGS FUND;Direct Plan;Growth;27.3523;16-Sep-2026
+119718;INF200K01UG1;-;SBI FLEXICAP FUND;Direct Plan;Growth;119.1501;16-Sep-2026
+119783;INF200K01UP2;-;SBI HEALTHCARE OPPORTUNITIES FUND;Direct Plan;Growth;594.0424;16-Sep-2026
+119716;INF200K01TP4;-;SBI MIDCAP FUND;Direct Plan;Growth;263.5528;16-Sep-2026
+149882;INF200KA18E2;-;SBI MultiCap Fund;Direct Plan;Growth;17.5104;16-Sep-2026
+119053;INF277K01MN2;-;Tata Aggressive Hybrid Fund;Direct Plan;Growth Option;484.9861;16-Sep-2026
+145724;INF277K017Q3;-;Tata Arbitrage Fund;Direct Plan;Growth Option;16.3364;16-Sep-2026
+146010;INF277K013S8;-;Tata Balanced Advantage Fund;Direct Plan;Growth Option;23.0541;16-Sep-2026
+135800;INF277K01Z77;-;Tata Digital India Fund;Direct Plan;Growth Option;48.0107;16-Sep-2026
+147757;INF277K017X9;-;Tata Focused Fund;Direct Plan;Growth Option;24.4980;16-Sep-2026
+119202;INF277K01MK8;-;Tata Large & Mid Cap Fund;Direct Plan;Growth Option;557.2771;16-Sep-2026
+151232;INF277KA1679;-;TATA MULTICAP FUND;Direct Plan;Growth Option;15.7641;16-Sep-2026
+152577;INF277KA1BA6;-;Tata Nifty Financial Services Index Fund;Direct Plan;Growth Option;11.8956;16-Sep-2026

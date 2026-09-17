@@ -216,6 +216,8 @@ $stmt->close();
 $conn->close();
 }
 
+include 'subroutines/fetch_fund_data.php';
+
 ?>
 </body>
 </html>

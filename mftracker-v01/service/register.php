@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
+
 session_start();
+
+include '../config/global.php';
 
 if (isset($_SESSION['username'])) { header("Location: ../index.php"); exit; }
 if (isset($_SESSION['msg'])) { echo "<script> alert('" . addslashes($_SESSION['msg']) . "'); </script>"; unset($_SESSION['msg']); }
@@ -14,7 +17,7 @@ $_SESSION["Captcha"] = $Captcha;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="../icons/golden-indian-rupee.ico">
-  <title>mftracker register Form</title>
+  <title><?php echo $sitename; ?> register Form</title>
   <style>
         /* Select Dropdown */
 		.input-group select {
@@ -245,8 +248,8 @@ $_SESSION["Captcha"] = $Captcha;
 <body>
 
   <div class="form-container">
-    <h2>mftracker Register</h2>
-    <p>We would love to hear from you. Find the full code in github.      https://github.com/sushantgoswami/mftracker.git</p>
+    <h2><?php echo $sitename; ?> Register</h2>
+    <p>We would love to hear from you. Find the full code in github.      <?php echo $giturl; ?></p>
     
     <form class="fancy-form" action="register_check.php" method="post">
       <!-- Name Field -->

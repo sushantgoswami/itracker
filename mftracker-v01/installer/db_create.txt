@@ -1,0 +1,27 @@
+Following commands can be used to create new DB and user:
+
+# Connect DB with root priv or Auth priv:
+
+mysql -u root -p
+
+# Create New DB with below commands:
+
+MariaDB [(none)]> create database itracker;
+Query OK, 1 row affected (0.002 sec)
+
+# Create new User:
+
+MariaDB [(none)]> CREATE USER 'itracker'@'localhost' IDENTIFIED BY 'securepasssword';
+Query OK, 0 rows affected (0.059 sec)
+
+# Grant privileges to user for DB:
+
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON itracker.* TO 'itracker'@'localhost';
+Query OK, 0 rows affected (0.001 sec)
+
+# Apply changes:
+
+MariaDB [(none)]> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.018 sec)
+
+

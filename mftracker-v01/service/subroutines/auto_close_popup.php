@@ -10,7 +10,7 @@ if (isset($_SESSION['msg'])) {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: #4CAF50;
+    background: #edb92b;
     color: white;
     padding: 12px 20px;
     border-radius: 5px;
@@ -24,5 +24,5 @@ setTimeout(function() {
     if (message) {
         message.remove();
     }
-}, 1000);
+}, 1500);
 </script>

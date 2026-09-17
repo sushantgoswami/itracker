@@ -275,11 +275,11 @@ $conn->close();
     <form class="fancy-form" action="forgot_password_verify.php" method="post">
       <!-- Name Field -->
       <div class="input-group">
-        <input style="background-color:#66ff66" type="text" id="username" name="username" placeholder="<? echo $username ?>" disabled>
+        <input style="background-color:#66ff66" type="text" id="username" name="username" placeholder="<?php echo $username ?>" disabled>
         <label for="username"></label>
       </div>        
       <div class="input-group">
-        <input style="background-color:#66ff66" type="text" id="fullname" name="fullname" placeholder="<? echo $fullname ?>" disabled>
+        <input style="background-color:#66ff66" type="text" id="fullname" name="fullname" placeholder="<?php echo $fullname ?>" disabled>
         <label for="username"></label>
       </div>        
       <!-- Password Field -->
@@ -295,7 +295,7 @@ $conn->close();
       </div>
         
       <div class="input-group">
-        <input style="background-color:#66ff66" type="text" id="question1" name="question1" placeholder="<? echo $question1 ?>" disabled>
+        <input style="background-color:#66ff66" type="text" id="question1" name="question1" placeholder="<?php echo $question1 ?>" disabled>
         <label for="question1"></label>
       </div> 
         
@@ -312,7 +312,7 @@ $conn->close();
       
       <div class="form-row">
       <div class="input-group"> 
-        <input type="text" id="Captcha" value="<? echo $Captcha;?>" name="Captcha" disabled>
+        <input type="text" id="Captcha" value="<?php echo $Captcha;?>" name="Captcha" disabled>
         <label for="Captcha">Captcha</label>
       </div>
       <div class="input-group"> 
@@ -323,7 +323,7 @@ $conn->close();
       <!-- Submit Button -->
       <button type="submit" class="submit-btn" value="Login">Submit</button>
        
-      <p>➜ Back to Main Page <a href="index.php">Click Here</a></p>
+      <p>➜ Back to Main Page <a href="../../index.php">Click Here</a></p>
     </form>
   </div>
 

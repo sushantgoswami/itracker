@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include '../config/global.php';
+
 if (isset($_SESSION['msg'])) { echo "<script> alert('" . addslashes($_SESSION['msg']) . "'); </script>"; unset($_SESSION['msg']); }
 $Captcha = random_int(10000, 99999);
 $_SESSION["Captcha"] = $Captcha;
@@ -242,7 +244,7 @@ $_SESSION["Captcha"] = $Captcha;
 <body>
 
   <div class="form-container">
-    <h2>mftracker forgot password</h2>
+    <h2><?php echo $sitename; ?> forgot password</h2>
     
     <form class="fancy-form" action="forgot_password_check.php" method="post">
         

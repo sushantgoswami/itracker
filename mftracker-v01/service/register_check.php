@@ -10,7 +10,7 @@ $answer1 = $_POST['answer1'];
 $captcha_verify = $_POST['Verify'];
 $captcha = $_SESSION['Captcha'];
 $secureNumber = random_int(10000, 99999);
-$tablename = "$username$secureNumber";
+$tablename = "data_$username$secureNumber";
 // $password = $_POST['password'];
 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 

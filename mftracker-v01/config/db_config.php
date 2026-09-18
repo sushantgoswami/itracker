@@ -2,7 +2,7 @@
     
 $servername = "localhost";
 $username = "itracker";
-$password = "fantastic@itracker";
+$password = "awesome@fantastic";
 $dbname = "itracker";
 
 ?>

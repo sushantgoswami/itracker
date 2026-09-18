@@ -4,6 +4,7 @@
 <?php
     
 session_start();
+
 include '../db_connect.php';
 include '../config/encrypt_code.php';
 
@@ -149,10 +150,10 @@ $stmt1->close();
 // sleep(1);
 } 
 // main code end
-?>
+// ?>
+// <?php
 
-<?php
-
+session_start();
 include '../db_connect.php';
 include '../config/encrypt_code.php';
 
@@ -204,7 +205,7 @@ while ($row = $result->fetch_assoc()) {
   $today = date("Y-m-d");
   $fileDate = date("Y-m-d", filemtime($filename));
   if ($fileDate == $today) {
-   echo "Not appending data";
+   $_SESSION['msg'] = "(INFO) Not appending data in totalvalue";
   } else {
    $file = fopen($filename, 'a');
    $data = array($currentdate, $purchase_total_value, $current_total_value, $gainloss, $gainlosspercent);
@@ -218,6 +219,14 @@ $conn->close();
 
 include 'subroutines/fetch_fund_data.php';
 
+// header("Location: ../index.php");
+
+if (isset($_SESSION['username'])) {
+    header("Location: ../index.php");
+    exit;
+}
+
 ?>
 </body>
 </html>
+

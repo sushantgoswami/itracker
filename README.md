@@ -1,4 +1,4 @@
-To install the application foolw the instructions
+To install the application follow the instructions
 
 #####################################
 Make DB as below
@@ -29,7 +29,7 @@ Bye
 Make config file changes
 #####################################
 
-1. Make changes in mftracker/config/db_config.php
+1. Make changes in mftracker-v01/config/db_config.php
 
    # vi mftracker/mftracker-v01/config/db_config.php
 
@@ -44,4 +44,14 @@ Make config file changes
    # chown -R apache:apache mftracker/mftracker-v01/log
    # chown -R nginx:nginx mftracker/mftracker-v01/log   
 
+4. Change the values in mftracker-v01/config/global.php
+
+5. Change the encrypted code to any other. However, maintain the approx same lenght. (mftracker-v01/config/encrypted_code.php)
+
+6. Change the same code in mftracker-v01/scripts/nav_download_cron.sh, run this cron daily via cronjob to update NAV on daily basis.
+
 #####################################
+Add administrator account
+#####################################
+
+Open the portal and register first user as administrator, this user is having by default admin rights and different page.

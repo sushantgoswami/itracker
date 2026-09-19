@@ -41,6 +41,7 @@ if (!isset($_SESSION['username'])) {
 
 include 'service/subroutines/auto_close_popup.php';
 include 'config/global.php';
+include 'config/encrypt_code.php';
 include 'db_connect.php';
 
 $username = $_SESSION['username'];
@@ -69,7 +70,7 @@ $gainloss_percent_total_value = ($gainloss_total_value / $purchase_total_value) 
     <div class="child-box">
     <p>➜ Enter Recent Purchases <a href="data-service/data_entry.php">Click Here</a></p>
     <p>➜ Add New Mutual Fund <a href="data-service/data_entry_new.php">Click Here</a></p>
-    <p>➜ Update Latest NAV from AMFI <a href="https://<?php echo $siteurl; ?>/mftracker-v01/service/update_nav.php?id=iCe4x5C7d0BAB9Ht3LUVh1P/KXG/twfoqpFw3bGYeZU="">Click Here</a></p>
+    <p>➜ Update Latest NAV from AMFI <a href="https://<?php echo $siteurl; ?>/mftracker-v01/service/update_nav.php?id=<?php echo $encryptedcode; ?>">Click Here</a></p>
     <p>➜ Reset Password <a href="service/reset_password.php">Click Here</a></p>
     <p>➜ Logout <a href="../logout.php">Click Here</a></p>
     </div>
@@ -258,7 +259,7 @@ echo "<hr>";
 <!-- Modal -->
 <div class="modal fade" id="Modal3">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color: #f2f2f2">
             <div class="modal-header">
                 <h5 class="modal-title">Fund Details</h5>
                 <button class="btn-close"

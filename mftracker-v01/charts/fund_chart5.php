@@ -16,6 +16,14 @@ if (($handle = fopen($filename, "r")) !== false) {
     fclose($handle);
 }
 
+$lines = file($filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+if (!empty($lines)) {
+    $lastLine = end($lines);
+    $row1 = str_getcsv($lastLine, ';');
+    $fundtype = $row1[count($row1) - 4];
+    $fundname = $row1[count($row1) - 5];
+}
+
 if (count($data1) > 30) {
     $data1 = array_slice($data1, -30);
 }
@@ -37,7 +45,7 @@ if (count($data1) > 30) {
         <div class="panel-header">
             <div>
                 <div class="panel-title">
-                    <?php echo $id; ?>
+                    <?php echo "$fundname $fundtype"; ?>
                 </div>
                 <div class="panel-subtitle">
                     NAV Data Graph
